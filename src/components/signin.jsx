@@ -1,12 +1,24 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 const Signin = () => {
     let [email, setEmail] = useState('');
     let [password, setPassword] = useState('');
+
+    let navigate=useNavigate()
     let handlesubmit = (e) => {
         e.preventDefault();
         let data = {email, password};
-        console.log(data);
+        // console.log(data);
+        axios.post('http://localhost:4000/signin',data)
+        .then((res)=>{
+            if(res.data.message==='signin successfull'){
+                navigate('/home')
+            }else{
+                alert(res.data.message)
+            }
+        })
     }
     return ( 
        <div>
