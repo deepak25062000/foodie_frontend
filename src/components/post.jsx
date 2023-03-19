@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Banner from "./banner";
 const Post = () => {
-    let [post,setPost] = useState([])
+    let [post, setPost] = useState([])
     useEffect(() => {
         let fetchData = async () => {
             let res = await axios.get('http://localhost:4000/post')
@@ -13,10 +13,10 @@ const Post = () => {
         }
         fetchData()
     }, [])
-  
+
     return (
         <div className="container mb-3">
-            <Banner/>
+            <Banner />
             <div className="row">
                 <div className="col-9 bg-light  d-flex flex-wrap ">
                     {post.map(x => (
@@ -25,7 +25,7 @@ const Post = () => {
                                 <Link to={`/home/post/${x._id}`}><img className="rounded" src={x.image} height={350} width={300} alt="" /></Link>
                                 <h5 className="text-muted">{x.title}</h5>
                                 <h4 className="font-weight-normal">{x.author}</h4>
-                                <Link to={`/home/post/${x._id}`} className="btn btn-dark"> Read More</Link>                            
+                                <Link to={`/home/post/${x._id}`} className="btn btn-dark"> Read More</Link>
                             </div>
                         </div>
                     ))}

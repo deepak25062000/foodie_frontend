@@ -1,4 +1,4 @@
-import { Routes,Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import About from "./about";
 import AddPost from "./addPost";
 import Home from "./foodieHome";
@@ -11,10 +11,10 @@ const HomePortal = () => {
             <Navbar />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About/>} />
+                <Route path="/about" element={<About />} />
                 <Route path="/add-post" element={<AddPost />} />
-                <Route path="/post" element={<Post/>}/>
-                <Route path="/post/:id" element={<SinglePost/>} />
+                <Route path="/post" element={<Post />} />
+                <Route path="/post/:id" element={<SinglePost />} />
             </Routes>
         </div>
     );

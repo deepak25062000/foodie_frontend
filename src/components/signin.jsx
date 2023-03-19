@@ -6,23 +6,23 @@ const Signin = () => {
     let [email, setEmail] = useState('');
     let [password, setPassword] = useState('');
 
-    let navigate=useNavigate()
+    let navigate = useNavigate()
     let handlesubmit = (e) => {
         e.preventDefault();
-        let data = {email, password};
+        let data = { email, password };
         // console.log(data);
-        axios.post('http://localhost:4000/signin',data)
-        .then((res)=>{
-            if(res.data.message==='signin successfull'){
-                navigate('/home')
-            }else{
-                alert(res.data.message)
-            }
-        })
+        axios.post('http://localhost:4000/signin', data)
+            .then((res) => {
+                if (res.data.message === 'signin successfull') {
+                    navigate('/home')
+                } else {
+                    alert(res.data.message)
+                }
+            })
     }
-    return ( 
-       <div>
-         <div className="login container pt-5">
+    return (
+        <div>
+            <div className="login container pt-5">
                 <div className="card w-50 mx-auto my-5 shadow">
                     <div className="card-body">
                         <h1>Login Page</h1>
@@ -48,8 +48,8 @@ const Signin = () => {
                     </div>
                 </div>
             </div>
-       </div>
-     );
+        </div>
+    );
 }
- 
+
 export default Signin;

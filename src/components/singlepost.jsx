@@ -16,7 +16,7 @@ const SinglePost = () => {
             console.log(data);
         }
         fetchData()
-    },[post])
+    }, [post])
 
     return (
         <div className="singlePost">

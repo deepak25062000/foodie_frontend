@@ -9,7 +9,7 @@ const AddPost = () => {
     let [image, setImage] = useState("");
     let [location, setLocation] = useState("")
 
-let navigate=useNavigate()
+    let navigate = useNavigate()
     let addPost = (e) => {
         e.preventDefault()
         let data = { author, title, summary, image, location }
@@ -20,13 +20,13 @@ let navigate=useNavigate()
                 }).catch(err => {
                     alert(err.data.message)
                 })
-                navigate('/home/about')
+            navigate('/home/about')
         } else {
             alert("Please fill all the fields")
         }
     }
 
- 
+
     return (
 
         <div className="AddPost ">
@@ -94,11 +94,11 @@ let navigate=useNavigate()
 
                         <div className="signUP_button w-50 mb-5 mt-3 ">
                             <button className="btn btn-danger  w-50">Submit Post</button>
-                      
+
                         </div>
 
                     </form>
-           
+
                 </div>
             </div>
 
