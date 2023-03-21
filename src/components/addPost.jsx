@@ -2,7 +2,9 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
 const AddPost = () => {
+
     let [author, setAuthor] = useState("");
     let [title, setTitle] = useState("");
     let [summary, setSummary] = useState("");
@@ -12,6 +14,7 @@ const AddPost = () => {
     let navigate = useNavigate()
     let addPost = (e) => {
         e.preventDefault()
+
         let data = { author, title, summary, image, location }
         if (author && title && image && summary && location) {
             axios.post("http://localhost:4000/add-post", data)
@@ -65,8 +68,12 @@ const AddPost = () => {
 
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Example textarea</label>
-                            <textarea name="summary" cols="100" id="exampleFormControlTextarea1" rows="3" className="form-control  p-2 " value={summary} onChange={(e) => setSummary(e.target.value)}></textarea>
-
+                            <textarea name="summary"
+                                cols="100" id="exampleFormControlTextarea1"
+                                rows="3" className="form-control  p-2 "
+                                value={summary}
+                                onChange={(e) => setSummary(e.target.value)}>
+                            </textarea>
                         </div>
 
                         <div className="image">
@@ -77,7 +84,6 @@ const AddPost = () => {
                                 name="image"
                                 value={image}
                                 onChange={(e) => setImage(e.target.value)}
-
                             />
                         </div>
 

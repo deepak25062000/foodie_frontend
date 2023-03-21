@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Banner from './banner'
+
+
 const About = () => {
 
     let [user, setUser] = useState([])
@@ -15,6 +17,7 @@ const About = () => {
         }
         fetchData()
     }, [])
+
     useEffect(() => {
         let fetchData = async () => {
             let res = await axios.get('http://localhost:4000/user')
@@ -24,6 +27,7 @@ const About = () => {
         }
         fetchData()
     }, [])
+
     return (
 
         <div className=" text-center text-light font-monospace m-3">
@@ -32,13 +36,18 @@ const About = () => {
 
             </div>
             <div className="container">
+
                 <div className="row">
+
                     <div className="col-5 ms-5 mb-5">
                         <img width='500px' height="600px" src="../images/ice.webp" alt="" />
                     </div>
+
                     <div className="col-6 ">
+
                         <h1 className="bg-light text-dark p-2 rounded">About Stories</h1>
                         <p className="bg-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, aperiam.</p>
+
                         <div className="container">
                             <div className="row">
                                 <div className="col-6">
@@ -57,11 +66,10 @@ const About = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
-
 
             <div className="row">
                 <div className="col-lg-4 ">

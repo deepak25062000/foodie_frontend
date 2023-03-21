@@ -5,6 +5,7 @@ import Home from "./foodieHome";
 import Navbar from "./navbar";
 import Post from "./post";
 import SinglePost from "./singlepost";
+import Upadate from "./update";
 const HomePortal = () => {
     return (
         <div className="homeportal">
@@ -15,6 +16,7 @@ const HomePortal = () => {
                 <Route path="/add-post" element={<AddPost />} />
                 <Route path="/post" element={<Post />} />
                 <Route path="/post/:id" element={<SinglePost />} />
+                <Route path="/update/:id" element={<Upadate />} />
             </Routes>
         </div>
     );

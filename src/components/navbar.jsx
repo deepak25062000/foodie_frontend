@@ -21,6 +21,7 @@ const Navbar = () => {
                             <li className="nav-item">
                                 <a className="btn text-dark fs-5" href="/home/add-post">Add Post</a>
                             </li>
+
                             <li className="nav-item">
                                 <a className="btn text-dark fs-5" href="/">Logout</a>
                             </li>

@@ -2,8 +2,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Banner from "./banner";
+
+
 const Post = () => {
     let [post, setPost] = useState([])
+
+    // !fetching data 
     useEffect(() => {
         let fetchData = async () => {
             let res = await axios.get('http://localhost:4000/post')
@@ -12,23 +16,41 @@ const Post = () => {
             console.log(data);
         }
         fetchData()
-    }, [])
+    }, [post])
+
+
+    // !fetching data and deleting using id
+    let deleteProduct = async (id) => {
+        let result = await fetch(`http://localhost:4000/post/${id}`, {
+            method: "DELETE"
+        });
+        result = await result.json()
+        if (result) {
+            alert("delete succefully")
+        }
+    }
+
 
     return (
         <div className="container mb-3">
             <Banner />
             <div className="row">
                 <div className="col-9 bg-light  d-flex flex-wrap ">
-                    {post.map(x => (
+
+                    {post.map((x) => (
                         <div className="posts m-2 ">
                             <div className=" mb-4">
                                 <Link to={`/home/post/${x._id}`}><img className="rounded" src={x.image} height={350} width={300} alt="" /></Link>
                                 <h5 className="text-muted">{x.title}</h5>
                                 <h4 className="font-weight-normal">{x.author}</h4>
                                 <Link to={`/home/post/${x._id}`} className="btn btn-dark"> Read More</Link>
+                                <button className="btn btn-danger ms-2" onClick={() => deleteProduct(x._id)}>Delete</button>
                             </div>
+                            <Link className="btn btn-warning ms-2" to={`/home/update/${x._id}`}>Update</Link>
                         </div>
                     ))}
+
+                    
                 </div>
                 <div className="col-lg-3 ">
                     <div className="card p-1 m-1">

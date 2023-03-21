@@ -3,14 +3,16 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 const Signin = () => {
+
     let [email, setEmail] = useState('');
     let [password, setPassword] = useState('');
 
     let navigate = useNavigate()
     let handlesubmit = (e) => {
         e.preventDefault();
+
         let data = { email, password };
-        // console.log(data);
+
         axios.post('http://localhost:4000/signin', data)
             .then((res) => {
                 if (res.data.message === 'signin successfull') {
@@ -20,6 +22,8 @@ const Signin = () => {
                 }
             })
     }
+
+
     return (
         <div>
             <div className="login container pt-5">
@@ -29,19 +33,29 @@ const Signin = () => {
                         <div className="container">
                             <div className="login_form">
                                 <form action="" onSubmit={handlesubmit}>
+
+
                                     <div className="email form-group my-4">
                                         <input type="email" className="form-control" value={email} onChange={(e) => { setEmail(e.target.value) }} name="email" placeholder="Enter your email" />
                                     </div>
+
+
                                     <div className="password form-group my-4">
                                         <input type="password" className="form-control" value={password} onChange={(e) => { setPassword(e.target.value) }} name="password" placeholder="Enter your password" />
                                     </div>
+
+
                                     <div className="login_button">
                                         <button className="btn btn-primary">Login</button>
                                     </div>
+
+
                                     <div className="signup_button my-4">
                                         <p>Are you a new user?</p>
                                         <Link to="/signup" className="btn btn-outline-primary">Signup</Link>
                                     </div>
+
+
                                 </form>
                             </div>
                         </div>
